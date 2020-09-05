@@ -1,0 +1,18 @@
+# Gitignore made by Jakub Zurakowski
+
+# VS CODE
+.vscode/
+
+# Virtual Env
+venv/
+
+# Scripts
+*.bat
+*.sh
+
+# Python cache
+__pycache__/
+
+# Ignore environment config
+.env
+.env*
