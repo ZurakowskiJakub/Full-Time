@@ -4,6 +4,9 @@ from src.config.config import Config
 
 config = Config()
 
+DEFAULT_DATE_FORMAT = "%Y-%m-%d"
+DEFAULT_DATETIME_FORMAT = "%Y-%m-%d %H:%M.%S"
+
 
 def get_logger(name: str):
     """Get Logger with proper config

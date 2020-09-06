@@ -14,7 +14,7 @@ class Mongo():
     Default database is `dat_main`.
     """
 
-    def __init__(self, db_name: str = 'dat_main'):
+    def __init__(self, db_name: str = 'data_main'):
         """Constructor for Mongo()
 
         :param db_name: default database overwrite, defaults to 'dat_main'
