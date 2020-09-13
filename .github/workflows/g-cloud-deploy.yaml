@@ -12,6 +12,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Write .env file
+      uses: DamianReeves/write-file-action
+      with:
+        path: ${{ env.home }}/.env
+        contents: |
+          echo "FLASK_ENV = Production"
+          echo "FLASK_DEBUG = False"
+          echo "FLASK_TESTING = False"
+          echo "FLASK_SECRET_KEY = " + {{ secrets.FLASK_SECRET_KEY }}
+          echo "MONGO_URI = " + {{ secrets.MONGO_URI }}
+          echo "LOGGING_LEVEL = 20"
+          echo "FOOTBALL_DATA_KEY = " + {{ secrets.FOOTBALL_DATA_KEY }}
+        write-mode: overwrite
+
     - name: Initialize Google Cloud SDK
       uses: zxyle/publish-gae-action@master
       with:
