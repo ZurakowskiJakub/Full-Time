@@ -13,18 +13,16 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Write .env file
-      uses: DamianReeves/write-file-action@master
+      uses: SpicyPizza/create-envfile@v1
       with:
-        path: ${{ env.home }}/.env
-        contents: |
-          echo "FLASK_ENV = Production"
-          echo "FLASK_DEBUG = False"
-          echo "FLASK_TESTING = False"
-          echo "FLASK_SECRET_KEY = " + {{ secrets.FLASK_SECRET_KEY }}
-          echo "MONGO_URI = " + {{ secrets.MONGO_URI }}
-          echo "LOGGING_LEVEL = 20"
-          echo "FOOTBALL_DATA_KEY = " + {{ secrets.FOOTBALL_DATA_KEY }}
-        write-mode: overwrite
+        envkey_FLASK_ENV: "Production"
+        envkey_FLASK_DEBUG: "False"
+        envkey_FLASK_TESTING: "False"
+        envkey_FLASK_SECRET_KEY: ${{ secrets.FLASK_SECRET_KEY }}
+        envkey_MONGO_URI: ${{ secrets.MONGO_URI }}
+        envkey_LOGGING_LEVEL: 20
+        envkey_FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+        file_name: .env
 
     - name: Initialize Google Cloud SDK
       uses: zxyle/publish-gae-action@master
