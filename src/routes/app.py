@@ -6,7 +6,7 @@ app_module = Blueprint('app', __name__)
 
 db = Mongo()
 
-#Jakub taught me github
+
 @app_module.before_app_request
 def before_every_request():
     # TODO
