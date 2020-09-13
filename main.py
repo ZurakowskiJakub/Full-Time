@@ -3,6 +3,7 @@ import logging
 from flask import Flask
 
 from src.config.config import Config
+from src.data.scheduler import run_scheduler
 from src.routes.api import api_module
 from src.routes.app import app_module
 from src.util.util import get_logger
@@ -17,6 +18,9 @@ app.config.from_object('src.config.config.Config')
 app.register_blueprint(api_module)
 app.register_blueprint(app_module)
 
+# Run Scheduler
+# if config.ENV != 'Development':
+# run_scheduler()
 
 if __name__ == "__main__":
     logger.debug("App starting with debug=True")

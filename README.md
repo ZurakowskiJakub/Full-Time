@@ -11,6 +11,7 @@ Full-Time is a football match score prediction application written in Python (BE
 3. Install required packages / modules `pip install -r requirements.txt`
 4. Add a `.env` file
    1. This file should have the below (check `src.config.config`) for the full list in case I forgot to update the README
+   2. Remember to remove any `#` comments
 
 ```
 FLASK_ENV = Local | Development | Production
@@ -23,6 +24,8 @@ MONGO_URI = mongodb+srv://{user_name}:{password}@main.tydga.mongodb.net/{databas
 
 # 0=All, 10=Debug+, 20=Info+, 30=Warning+, 40=Error+, 50=Critical
 LOGGING_LEVEL = 0 | 10 | 20 | 30 | 40 | 50
+
+FOOTBALL_DATA_KEY = # Your football-data.org API key
 ```
 
 ## Running the application

@@ -7,8 +7,6 @@ from src.database.mongo import Mongo
 from src.database.util import doc_to_dict
 
 api_module = Blueprint('api', __name__, url_prefix='/api')
-
-
 db = Mongo()
 
 
@@ -78,5 +76,31 @@ def get_user_full():
     return jsonify(
         doc_to_dict(
             user
+        )
+    )
+
+
+@api_module.route('/getAllLeaguesFromStore')
+def get_all_leagues_from_store():
+    db = Mongo('data_test')
+    coll = db.get_collection('leagues')
+    docs = [doc for doc in coll.find()]
+
+    return jsonify(
+        doc_to_dict(
+            docs
+        )
+    )
+
+
+@api_module.route('/getAllMatchesFromStore')
+def get_all_matches_from_store():
+    db = Mongo('data_test')
+    coll = db.get_collection('matches')
+    docs = [doc for doc in coll.find()]
+
+    return jsonify(
+        doc_to_dict(
+            docs
         )
     )

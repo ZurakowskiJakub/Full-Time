@@ -2,3 +2,5 @@ dnspython
 Flask
 pymongo
 python-dotenv
+requests
+APScheduler
