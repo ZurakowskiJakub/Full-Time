@@ -12,6 +12,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Write .env file
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_FLASK_ENV: "Production"
+        envkey_FLASK_DEBUG: "False"
+        envkey_FLASK_TESTING: "False"
+        envkey_FLASK_SECRET_KEY: ${{ secrets.FLASK_SECRET_KEY }}
+        envkey_MONGO_URI: ${{ secrets.MONGO_URI }}
+        envkey_LOGGING_LEVEL: 20
+        envkey_FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+        file_name: .env
+
     - name: Initialize Google Cloud SDK
       uses: zxyle/publish-gae-action@master
       with:
