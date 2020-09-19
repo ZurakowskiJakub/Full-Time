@@ -26,6 +26,8 @@ MONGO_URI = mongodb+srv://{user_name}:{password}@main.tydga.mongodb.net/{databas
 LOGGING_LEVEL = 0 | 10 | 20 | 30 | 40 | 50
 
 FOOTBALL_DATA_KEY = # Your football-data.org API key
+
+FIREBASE_JSON = # The path to your firebase service account json
 ```
 
 ## Running the application
