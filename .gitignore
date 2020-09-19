@@ -16,3 +16,6 @@ __pycache__/
 # Ignore environment config
 .env
 .env*
+
+# Ignore firebase json config
+fulltime*firebase-adminsdk*.json
