@@ -109,17 +109,17 @@ def api_index():
 #     )
 
 
-@api_module.route('/getUser')
+@api_module.route('/getUser', methods=['GET'])
 def get_user():
     user = User(session['user_id'])
 
     return user.json()
 
 
-@api_module.route('/createUserLeague')
+@api_module.route('/createUserLeague', methods=['POST'])
 def create_user_league():
     required = ['league_name']
-    params = get_required_params(request, required, 'GET')
+    params = get_required_params(request, required, 'POST')
     if not params:
         return json_err("Missing required parameters.")
 
@@ -127,10 +127,10 @@ def create_user_league():
 
     user_league = user.create_user_league(params['league_name'])
 
-    return user_league.json()
+    return user_league.json(), 201
 
 
-@api_module.route('/getAllUserLeagues')
+@api_module.route('/getAllUserLeagues', methods=['GET'])
 def get_all_user_leagues():
     return jsonify(
         doc_to_dict(
@@ -139,10 +139,10 @@ def get_all_user_leagues():
     )
 
 
-@api_module.route('/joinUserLeague')
+@api_module.route('/joinUserLeague', methods=['POST'])
 def join_user_league():
     required = ['league_id']
-    params = get_required_params(request, required, 'GET')
+    params = get_required_params(request, required, 'POST')
     if not params:
         return json_err("Missing required parameters.")
 
