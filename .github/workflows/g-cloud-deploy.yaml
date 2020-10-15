@@ -24,7 +24,26 @@ jobs:
           envkey_FIREBASE_JSON: "fulltime-b5a05-firebase-adminsdk-8s2fu-e68a572b41.json"
           envkey_DISABLE_AUTH: "False"
           file_name: .env
-
+      
+      - name: Write Firebase Admin config
+        uses: DamianReeves/write-file-action
+        with:
+          path:  fulltime-b5a05-firebase-adminsdk-8s2fu-e68a572b41.json
+          contents: |
+            echo "{
+              \"type\": \"service_account\",
+              \"project_id\": \"fulltime-b5a05\",
+              \"private_key_id\": \"e68a572b4169f0a9bc90ec66a0daa43e9144cf65\",
+              \"private_key\": \"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDDRAfKLjezf+Iz\nY6hk1eVem/Gcy9LkV8V4q10jI8kRaR81vmFIKlaZoJc6xAXtY4cCnfWb5MsISaMn\nlPluSI/e8UG9Wi+5tL+ijdff1qlvMbQ/z+xXrjMVcfQye7fpeyKhz+7KPltln6tr\nUjfXZCqBtU3vKgYZ1jZ69MzyVhh3ewz9dE3bk/jsFbpPIT9vd5TXTrhkt50DldLG\nlHeVBZTcvO6/J0rECqdMekv/BkolTPfg7ptOd2r4TIxW3xcp76mUScHviw8R2KAQ\nn5ATKwpOOBYW/RKsjg4kZJRzYT679cJTQdh2wkrG3lQ6PTsJYzyhGpg6TE82U0sh\nk3/65GubAgMBAAECggEACLrX5lAeqWXERSvlcWymro4mRS5PpWnPKE/xAAsviBm9\nDXgPfVx3NrMZT8VHxo82kAVj365g7WPtaW2doTKZTAxZNg/8Jj9QegIBbr54IMKG\nHnw7QshE/GZ11nP1ivi4WaekM2KKT4bN8SRh3r1ZsSbb7x9f2nPbR6/+Ia97tIu1\nvjptHtLgo+5Ir5dX3DnQq82QLuwbJSGzuIR4XoTtJuiwD0STpDr5fIVJSIhDi5M2\nJEFLPzEb8cUDlAqZnVLZ/yi5WJjUE4pE+1QJ9R6C+3VD8T/YcWeYCfbwTvVIaUwb\n3MOEj3UfCoq+T5D38DqhuLCuYde4xQeH0FE7SDKVwQKBgQDznFV0QpycProxNFk5\nR4kBfUo97NaKNAvTfNxbyyXZB+7vXWgYhYbCFlGH1WYJ/JPFrWPouEK6uK5CqfOT\njrNdT1H/a03wjHKcgT+gSBSAqYSDlTT45deRJyNs9ZXdNpnx0Pwdsk5tSHABM0V1\nAFjrUi/xyC9jxPbSfK/en2F0MQKBgQDNMkY5bDtiX4QFtUClNfCYGmPjy+fh8vAl\n4yCz53edcLC7D4/C3JrPwxwzqkbzHGzbky0UDSzmhGI7mo5n1ClPafNY2xI/g/hn\nX8FU3nGSCKImeF0vKRcrmN2zeGnBDiNFVh3FsOi5s2Wv9seWZnqB8kRf+md7XcN/\nH3fZJpNliwKBgQDADryAUBPQStPX/wFo2zD0b6acc6AgjS/VqFbCN8K6/DovlGCB\nFKRNV/MnN+KedPa7nhtqWfqh4v/fpsVVy+c05VgsGpjz0IZ7RJq47prbZMoIQxXk\nNLBiy4xuVp+0K1vq/WwGrZCPL9C94YIc4A06WS1bXQufiKVfBNZSmSznwQKBgCEZ\nCeC7R3zfoUD2cn3zjGJMZ25X9ogoknnZ/+1k2ZNomOkjYnHw+XunogXnYlhWbmyg\nebXxRhvMoLeyf2PaAevQUDM16uSZ2dh6xol08+a1Q8pmwckYnKcomiIXux8rs568\nfELl/TPu7ukKKjllQD9zn3nHvydUAXOg1MkPAtlvAoGAYQKuNPz7ewmOIHSQR4na\ntLRXtaqjg6vmjhACwMQJvYUtcE7rmhN/oDkVRw0okE84CVerXAiYXCKpj5z6fJw+\nXUXqs4uuksFcoCp+UTaax5iYbhXjNHRdQmAdblBoN+zN65r5nGquq+iFe2AC3vTQ\nBsjbAeyDK+KDRpWcFcHWLu8=\n-----END PRIVATE KEY-----\n\",
+              \"client_email\": \"firebase-adminsdk-8s2fu@fulltime-b5a05.iam.gserviceaccount.com\",
+              \"client_id\": \"104174142579414769457\",
+              \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",
+              \"token_uri\": \"https://oauth2.googleapis.com/token\",
+              \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",
+              \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-8s2fu%40fulltime-b5a05.iam.gserviceaccount.com\"
+            }"
+          write-mode: overwrite
+          
       - name: Initialize Google Cloud SDK
         uses: zxyle/publish-gae-action@master
         with:
